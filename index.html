@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- Bab M: Pengaturan Viewport untuk perangkat mobile -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktikum CSS - Eksplorasi Kota Malang</title>
+
+    <!-- Bab C: Penulisan CSS Eksternal -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Bab C: Penulisan CSS Internal (Embedded) untuk pengujian cepat -->
+    <style>
+        .internal-style-demo {
+            background-color: #e2e8f0;
+            padding: 8px;
+            border-left: 4px solid #0284c7;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ======================================================= -->
+    <!-- BAGIAN 1: STRUKTUR TATA LETAK LATIHAN MODUL (KOTA MALANG) -->
+    <!-- ======================================================= -->
+
+    <!-- Header Website (Bab B: ID Selector) -->
+    <header id="header-utama">
+        <h1>Pesona Kota Malang</h1>
+        <!-- Bab C: Penulisan CSS Inline -->
+        <p style="font-size: 1.1em; color: #f1f5f9;">Website Resmi Panduan Wisata dan Informasi Sejarah</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <!-- Bab Q: Pseudo-class Link (:link, :visited, :hover, :active) -->
+        <a href="#sejarah" class="nav-item">Sejarah</a>
+        <a href="#geografis" class="nav-item">Geografis</a>
+        <a href="#wisata" class="nav-item">Tempat Wisata</a>
+        <a href="#demo-css" class="nav-item">Laboratorium CSS</a>
+        <a href="https://malangkota.go.id" target="_blank" class="nav-item">Portal Pemkot</a>
+    </nav>
+
+    <!-- Container Utama (Bab O: Penerapan Flexbox untuk tata letak Sidebar & Content) -->
+    <div class="main-layout">
+        
+        <!-- Sidebar (Kiri) -->
+        <aside class="sidebar">
+            <h3>Ikon Kota Malang</h3>
+            <ul>
+                <li>Alun-Alun Tugu</li>
+                <li>Kampung Warna-Warni</li>
+                <li>Arema & Singo Edan</li>
+                <li>Bakso Malang</li>
+                <li>Apel Manalagi</li>
+            </ul>
+        </aside>
+
+        <!-- Content Area (Bagian Utama) -->
+        <main class="content-area">
+            
+            <section id="sejarah" class="artikel">
+                <h2>Sejarah Singkat</h2>
+                <!-- Bab R: Pseudo-element ::first-letter dan ::first-line -->
+                <p class="paragraf-dekorasi">
+                    Kota Malang didirikan pada masa pemerintahan kolonial Hindia Belanda dan berkembang pesat sebagai kota peristirahatan karena udaranya yang sejuk. Malang bertransformasi dari pusat perkebunan kolonial menjadi salah satu kota pendidikan dan kebudayaan terkemuka di Jawa Timur.
+                </p>
+            </section>
+
+            <section id="geografis" class="artikel">
+                <h2>Geografis</h2>
+                <!-- Bab H: Demonstrasi Float dan Clearfix -->
+                <div class="float-container">
+                    <div class="box-float-img">PETA / ILUSTRASI</div>
+                    <p>
+                        Malang terletak di dataran tinggi yang dikelilingi oleh pegunungan megah seperti Gunung Arjuno di utara, Gunung Semeru di timur, dan Gunung Panderman di barat. Hal ini memberikan iklim mikro yang relatif dingin dan tanah yang sangat subur.
+                    </p>
+                    <div class="clear-both"></div>
+                </div>
+            </section>
+
+            <section id="wisata" class="artikel">
+                <h2>Tempat Wisata Populer</h2>
+                <!-- Bab N: Demonstrasi Sistem Grid View 12 Kolom Sederhana -->
+                <div class="row">
+                    <div class="col-4"><div class="grid-card">Kampung Biru Arema</div></div>
+                    <div class="col-4"><div class="grid-card">Kayutangan Heritage</div></div>
+                    <div class="col-4"><div class="grid-card">Hutan Kota Malabar</div></div>
+                </div>
+            </section>
+
+            <!-- ======================================================= -->
+            <!-- BAGIAN 2: SHOWCASE SELURUH BAB TEORI MODUL 2            -->
+            <!-- ======================================================= -->
+            <section id="demo-css" class="artikel">
+                <h2>Showcase Seluruh Fitur Modul CSS</h2>
+                <div class="internal-style-demo">
+                    Elemen ini diberi gaya menggunakan <strong>Internal CSS</strong> di dalam tag &lt;style&gt;.
+                </div>
+
+                <!-- Bab E: Perbedaan Display (Inline, Block, Flex, None, Visibility) -->
+                <h3>1. Display & Visibility</h3>
+                <div>
+                    <span class="demo-inline">Display: Inline 1</span>
+                    <span class="demo-inline">Display: Inline 2</span>
+                    <div class="demo-block">Display: Block</div>
+                    <div class="hidden-element">Elemen display: none (Hilang total dari DOM)</div>
+                    <div class="invisible-element">Elemen visibility: hidden (Tidak terlihat tapi ruangnya tetap ada)</div>
+                </div>
+
+                <!-- Bab F: Box Model Demonstrasi -->
+                <h3>2. CSS Box Model</h3>
+                <div class="box-model-demo">
+                    Konten Elemen (Content) dengan Padding, Border, dan Margin terpisah.
+                </div>
+
+                <!-- Bab G: Positioning (Static, Relative, Absolute) -->
+                <h3>3. CSS Positioning</h3>
+                <div class="pos-relative-parent">
+                    Parent (Position: Relative)
+                    <div class="pos-absolute-child">Child (Position: Absolute)</div>
+                </div>
+
+                <!-- Bab I: Tipografi & Teks -->
+                <h3>4. Tipografi & Perataan Teks</h3>
+                <p class="text-typography-demo">
+                    Teks ini menguji font-variant small-caps, text-indent, word-spacing, text-transform, dan letter-spacing secara lengkap.
+                </p>
+                <p class="text-rtl-demo">Teks dengan arah penulisan RTL (Right-to-Left).</p>
+
+                <!-- Bab J & K: Background & Representasi Warna -->
+                <h3>5. Background & Format Warna (RGB, RGBA, HSL, HSLA)</h3>
+                <div class="color-palette-container">
+                    <div class="box-color c-hex">Hex (#01f)</div>
+                    <div class="box-color c-rgb">RGB</div>
+                    <div class="box-color c-rgba">RGBA (Transparan)</div>
+                    <div class="box-color c-hsl">HSL</div>
+                    <div class="box-color c-hsla">HSLA</div>
+                </div>
+                <div class="bg-origin-demo">
+                    Area Demonstrasi Background Size Cover, Position, dan Origin.
+                </div>
+
+                <!-- Bab L: Bayangan (Box-Shadow & Text-Shadow) -->
+                <h3>6. Bayangan (Shadow)</h3>
+                <h4 class="shadow-text-demo">Efek Text-Shadow</h4>
+                <div class="shadow-box-demo">Box Shadow Luar</div>
+                <div class="shadow-inset-demo">Box Shadow Dalam (Inset)</div>
+
+                <!-- Bab Q: Pseudo-Class pada Formulir -->
+                <h3>7. Pseudo-Class Form States</h3>
+                <form class="demo-form" onsubmit="return false;">
+                    <label>Nama Lengkap (Wajib / Required):</label>
+                    <input type="text" required placeholder="Ketik nama Anda...">
+
+                    <label>Pekerjaan (Opsional):</label>
+                    <input type="text" placeholder="Pekerjaan...">
+
+                    <label>Usia (Range 18 - 60):</label>
+                    <input type="number" min="18" max="60" value="20">
+
+                    <label>Status Member (Read-only):</label>
+                    <input type="text" readonly value="Aktif Member Tetap">
+
+                    <label>Akun Disabled:</label>
+                    <input type="text" disabled value="Tidak dapat diedit">
+
+                    <div style="margin-top: 10px;">
+                        <input type="checkbox" id="chk-setuju" checked>
+                        <label for="chk-setuju">Saya menyetujui aturan praktikum (:checked)</label>
+                    </div>
+                </form>
+
+                <!-- Bab R: Pseudo-element ::before & ::after -->
+                <h3>8. Pseudo-Element (Before & After)</h3>
+                <div class="badge-target">Konten Inti Badge</div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Tombol Fixed (Bab G: Position Fixed) -->
+    <a href="#header-utama" class="btn-scroll-top" title="Kembali ke atas">▲</a>
+
+    <!-- Footer Website -->
+    <footer class="footer">
+        <p>&copy; 2026 Praktikum Pemrograman Web - Teknik Komputer. Dibuat untuk Modul Pembelajaran CSS.</p>
+    </footer>
+
+</body>
+</html>

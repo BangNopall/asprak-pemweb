@@ -1,0 +1,509 @@
+/* ==========================================================================
+   MODUL 2: CASCADING STYLESHEET (CSS)
+   Ringkasan Kode Implementasi Bab A hingga Bab R
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Bab D: Komentar pada CSS
+   Bab Q: :root Selector untuk CSS Variables
+   -------------------------------------------------------------------------- */
+:root {
+    --primary-color: #1e3a8a;
+    --secondary-color: #0284c7;
+    --accent-color: #f59e0b;
+    --text-dark: #1e293b;
+    --bg-light: #f8fafc;
+    --border-color: #cbd5e1;
+}
+
+/* --------------------------------------------------------------------------
+   Bab B: Grouping Selector (p, span, a) & Elemen Universal
+   -------------------------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Bab I: Tipografi & Teks */
+    font-family: "Segoe UI", Arial, sans-serif; /* Fallback font system */
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+}
+
+p, span, a {
+    /* Demonstrasi Grouping Selector untuk efisiensi baris */
+    letter-spacing: 0.2px;
+}
+
+/* --------------------------------------------------------------------------
+   Bab B & Latihan: Header, Navbar, Footer
+   -------------------------------------------------------------------------- */
+#header-utama {
+    /* Bab B: ID Selector menggunakan hash (#) */
+    background-color: var(--primary-color);
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+#header-utama h1 {
+    font-size: 2.2em;
+    margin-bottom: 8px;
+    /* Bab I: Text Transform */
+    text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   Bab Q: Pseudo-Class Navigasi & Links
+   Aturan Urutan: :link -> :visited -> :hover -> :active (LVHA)
+   -------------------------------------------------------------------------- */
+.navbar {
+    background-color: #0f172a;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.nav-item {
+    padding: 14px 20px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav-item:link {
+    color: hsl(215, 20%, 65%);
+}
+
+.nav-item:visited {
+    color: #cbd5e1;
+}
+
+.nav-item:hover {
+    color: #ffffff;
+    background-color: var(--secondary-color);
+}
+
+.nav-item:active {
+    color: var(--accent-color);
+}
+
+/* --------------------------------------------------------------------------
+   Bab O & Latihan: Tata Letak Website Menggunakan Flexbox
+   -------------------------------------------------------------------------- */
+.main-layout {
+    display: flex;
+    flex-direction: row; /* Main axis horizontal */
+    justify-content: space-between;
+    align-items: stretch; /* Cross axis */
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+    gap: 20px;
+}
+
+/* Flex Item: Sidebar */
+.sidebar {
+    /* Bab O: Properti Flex Items */
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 260px; /* Ukuran dasar sidebar */
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    align-self: flex-start; /* Override align-items */
+}
+
+.sidebar h3 {
+    margin-bottom: 12px;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 6px;
+}
+
+.sidebar ul {
+    list-style-position: inside;
+}
+
+.sidebar li {
+    margin-bottom: 8px;
+}
+
+/* Flex Item: Content Area */
+.content-area {
+    flex-grow: 1; /* Tumbuh mengisi sisa ruang */
+    background-color: #ffffff;
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+.artikel {
+    margin-bottom: 30px;
+}
+
+.artikel h2 {
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
+/* --------------------------------------------------------------------------
+   Bab R: Pseudo-Element (::first-letter, ::first-line, ::before, ::after)
+   -------------------------------------------------------------------------- */
+.paragraf-dekorasi::first-letter {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: var(--primary-color);
+    float: left;
+    margin-right: 8px;
+    line-height: 1;
+}
+
+.paragraf-dekorasi::first-line {
+    font-variant: small-caps;
+    font-weight: 600;
+}
+
+.badge-target {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f1f5f9;
+    border: 1px dashed #94a3b8;
+    margin-top: 15px;
+}
+
+.badge-target::before {
+    content: "★ ";
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.badge-target::after {
+    content: " (Terverifikasi)";
+    color: green;
+    font-size: 0.85em;
+    font-style: italic;
+}
+
+/* --------------------------------------------------------------------------
+   Bab H: Float CSS dan Penyelesaian Collapse (clear: both)
+   -------------------------------------------------------------------------- */
+.float-container {
+    padding: 10px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+.box-float-img {
+    float: left;
+    width: 140px;
+    height: 90px;
+    background-color: #94a3b8;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.clear-both {
+    clear: both; /* Mengembalikan alur normal setelah elemen float */
+}
+
+/* --------------------------------------------------------------------------
+   Bab N: Grid-View Responsif (12 Kolom Dasar)
+   -------------------------------------------------------------------------- */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+}
+
+.col-4 {
+    width: 33.333%; /* 4 kolom dari 12 total = 1/3 lebar */
+    padding: 0 10px;
+    margin-bottom: 15px;
+}
+
+.grid-card {
+    background-color: #e0f2fe;
+    border: 1px solid #7dd3fc;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   Bab E: Display & Visibility
+   -------------------------------------------------------------------------- */
+.demo-inline {
+    display: inline;
+    background-color: #fef08a;
+    padding: 2px 6px;
+    border: 1px solid #eab308;
+}
+
+.demo-block {
+    display: block;
+    background-color: #bbf7d0;
+    margin-top: 10px;
+    padding: 8px;
+}
+
+.hidden-element {
+    display: none; /* Dihilangkan sepenuhnya dari alur dokumen */
+}
+
+.invisible-element {
+    visibility: hidden; /* Disembunyikan namun ruang kotak tetap dialokasikan */
+    height: 30px;
+}
+
+/* --------------------------------------------------------------------------
+   Bab F: Box Model & CSS Shorthand
+   -------------------------------------------------------------------------- */
+.box-model-demo {
+    /* Shorthand Margin 4 nilai: top right bottom left (searah jarum jam) */
+    margin: 15px 25px 15px 10px;
+    /* Shorthand Padding 2 nilai: vertical horizontal */
+    padding: 15px 20px;
+    /* Shorthand Border: width style color */
+    border: 3px dashed #64748b;
+    background-color: #f1f5f9;
+}
+
+/* --------------------------------------------------------------------------
+   Bab G: Positioning (Static, Relative, Absolute, Fixed)
+   -------------------------------------------------------------------------- */
+.pos-relative-parent {
+    position: relative; /* Menjadi titik acuan bagi child absolute */
+    height: 120px;
+    background-color: #ede9fe;
+    border: 2px solid #8b5cf6;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.pos-absolute-child {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 140px;
+    background-color: #f43f5e;
+    color: #ffffff;
+    padding: 6px;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.btn-scroll-top {
+    /* Tombol melayang tetap di layar */
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 99;
+}
+
+/* --------------------------------------------------------------------------
+   Bab I: Tipografi dan Penataan Teks Tambahan
+   -------------------------------------------------------------------------- */
+.text-typography-demo {
+    font-variant: small-caps;
+    text-indent: 30px;
+    word-spacing: 4px;
+    text-transform: capitalize;
+    text-decoration: underline;
+    font-style: oblique;
+    margin-top: 10px;
+}
+
+.text-rtl-demo {
+    direction: rtl; /* Right to Left */
+    background: #f8fafc;
+    padding: 6px;
+    border: 1px dotted #94a3b8;
+    margin-top: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   Bab K & J: Format Warna & Background Properties
+   -------------------------------------------------------------------------- */
+.color-palette-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.box-color {
+    padding: 10px 15px;
+    color: #ffffff;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.c-hex { background-color: #01f; } /* Heksadesimal 3-digit */
+.c-rgb { background-color: rgb(88, 255, 21); color: #000; } /* RGB 0-255 */
+.c-rgba { background-color: rgba(40, 23, 11, 0.7); } /* RGBA dengan nilai transparansi alpha */
+.c-hsl { background-color: hsl(324, 70%, 40%); } /* HSL */
+.c-hsla { background-color: hsla(267, 80%, 45%, 0.6); } /* HSLA */
+
+.bg-origin-demo {
+    margin-top: 15px;
+    padding: 25px;
+    border: 8px dashed #0284c7;
+    background-color: #bae6fd;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: padding-box; /* padding-box, border-box, content-box */
+}
+
+/* --------------------------------------------------------------------------
+   Bab L: Bayangan (Box-Shadow & Text-Shadow)
+   -------------------------------------------------------------------------- */
+.shadow-text-demo {
+    /* x y blur color */
+    text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.4);
+    color: coral;
+    margin-top: 10px;
+}
+
+.shadow-box-demo {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #e2e8f0;
+}
+
+.shadow-inset-demo {
+    /* Shadow ke dalam kontainer */
+    box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.25);
+    padding: 12px;
+    background-color: #f1f5f9;
+}
+
+/* --------------------------------------------------------------------------
+   Bab Q: Ragam Pseudo-Class Form States
+   -------------------------------------------------------------------------- */
+.demo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+    max-width: 400px;
+}
+
+.demo-form input {
+    padding: 8px;
+    border: 1px solid #94a3b8;
+    border-radius: 4px;
+}
+
+/* Fokus input */
+.demo-form input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 5px rgba(2, 132, 199, 0.5);
+}
+
+/* Validasi form pseudo-class */
+.demo-form input:required {
+    border-left: 4px solid #f59e0b;
+}
+
+.demo-form input:optional {
+    border-left: 4px solid #94a3b8;
+}
+
+.demo-form input:valid {
+    background-color: #f0fdf4;
+}
+
+.demo-form input:invalid {
+    background-color: #fef2f2;
+}
+
+.demo-form input:disabled {
+    background-color: #e2e8f0;
+    cursor: not-allowed;
+}
+
+.demo-form input:read-only {
+    color: #64748b;
+}
+
+.demo-form input:in-range {
+    border-color: green;
+}
+
+.demo-form input:out-of-range {
+    border-color: red;
+}
+
+/* Pseudo-class :not() */
+.demo-form input:not([type="checkbox"]) {
+    width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+.footer {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    text-align: center;
+    padding: 18px;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   Bab P: Media Queries (Responsivitas Perangkat Mobile)
+   -------------------------------------------------------------------------- */
+@media only screen and (max-width: 768px) {
+    /* Mengubah susunan baris Flexbox menjadi kolom vertikal pada layar kecil */
+    .main-layout {
+        flex-direction: column;
+    }
+    /* Komentar CSS */
+    .sidebar {
+        flex-basis: auto;
+        width: 100%;
+    }
+
+    .col-4 {
+        width: 100%; /* Grid kolom penuh di perangkat mobile */
+    }
+
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #header-utama h1 {
+        font-size: 1.6em;
+    }
+}
